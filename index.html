@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenSpot - L'application qui t'aide a planter des fleurs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">&#127793;</span> GreenSpot
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="plants.html">Nos Plantes</a></li>
+                <li><a href="conseils.html">Conseils</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <h1>Faites fleurir votre jardin avec <span class="highlight">GreenSpot</span></h1>
+            <p class="hero-subtitle">L'application qui vous accompagne pour planter, entretenir et faire grandir vos fleurs. Que vous soyez debutant ou expert, GreenSpot est votre compagnon vert.</p>
+            <div class="hero-buttons">
+                <a href="plants.html" class="btn btn-primary">Decouvrir nos plantes</a>
+                <a href="conseils.html" class="btn btn-secondary">Conseils jardinage</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Varietes de fleurs</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Guides pratiques</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Mois de conseils</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="floating-leaf leaf-1">&#127807;</div>
+            <div class="floating-leaf leaf-2">&#127800;</div>
+            <div class="floating-leaf leaf-3">&#127803;</div>
+            <div class="floating-leaf leaf-4">&#127802;</div>
+            <div class="floating-leaf leaf-5">&#127799;</div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Pourquoi choisir GreenSpot ?</h2>
+            <p class="section-subtitle">Tout ce dont vous avez besoin pour un jardin magnifique</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#127793;</div>
+                    <h3>Guide de plantation</h3>
+                    <p>Des instructions detaillees pour chaque type de fleur, adaptees a votre region et a la saison.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128197;</div>
+                    <h3>Calendrier saisonnier</h3>
+                    <p>Sachez exactement quand planter, arroser et entretenir vos fleurs tout au long de l'annee.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9728;&#65039;</div>
+                    <h3>Meteo et soleil</h3>
+                    <p>Recommandations basees sur l'exposition au soleil et les conditions meteorologiques locales.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128167;</div>
+                    <h3>Gestion de l'arrosage</h3>
+                    <p>Frequence et quantite d'eau ideales pour chaque plante de votre jardin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#129716;</div>
+                    <h3>Diagnostic maladies</h3>
+                    <p>Identifiez et traitez les maladies de vos plantes grace a nos guides illustres.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#127757;</div>
+                    <h3>Eco-responsable</h3>
+                    <p>Conseils pour un jardinage respectueux de l'environnement et de la biodiversite.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Plants Section -->
+    <section class="popular-plants" id="popular-plants">
+        <div class="container">
+            <h2 class="section-title">Plantes populaires du moment</h2>
+            <p class="section-subtitle">Les fleurs les plus appreciees par notre communaute</p>
+            <div class="plants-grid">
+                <div class="plant-card">
+                    <div class="plant-image plant-img-1">
+                        <span class="plant-emoji">&#127801;</span>
+                    </div>
+                    <div class="plant-info">
+                        <h3>Rose</h3>
+                        <p class="plant-type">Vivace</p>
+                        <div class="plant-details">
+                            <span class="plant-detail">&#9728;&#65039; Plein soleil</span>
+                            <span class="plant-detail">&#128167; Moderee</span>
+                        </div>
+                        <span class="plant-season">Plantation : Mars - Mai</span>
+                    </div>
+                </div>
+                <div class="plant-card">
+                    <div class="plant-image plant-img-2">
+                        <span class="plant-emoji">&#127803;</span>
+                    </div>
+                    <div class="plant-info">
+                        <h3>Tournesol</h3>
+                        <p class="plant-type">Annuelle</p>
+                        <div class="plant-details">
+                            <span class="plant-detail">&#9728;&#65039; Plein soleil</span>
+                            <span class="plant-detail">&#128167; Reguliere</span>
+                        </div>
+                        <span class="plant-season">Plantation : Avril - Juin</span>
+                    </div>
+                </div>
+                <div class="plant-card">
+                    <div class="plant-image plant-img-3">
+                        <span class="plant-emoji">&#127800;</span>
+                    </div>
+                    <div class="plant-info">
+                        <h3>Tulipe</h3>
+                        <p class="plant-type">Bulbe vivace</p>
+                        <div class="plant-details">
+                            <span class="plant-detail">&#9728;&#65039; Mi-ombre</span>
+                            <span class="plant-detail">&#128167; Legere</span>
+                        </div>
+                        <span class="plant-season">Plantation : Octobre - Novembre</span>
+                    </div>
+                </div>
+                <div class="plant-card">
+                    <div class="plant-image plant-img-4">
+                        <span class="plant-emoji">&#127802;</span>
+                    </div>
+                    <div class="plant-info">
+                        <h3>Lavande</h3>
+                        <p class="plant-type">Vivace</p>
+                        <div class="plant-details">
+                            <span class="plant-detail">&#9728;&#65039; Plein soleil</span>
+                            <span class="plant-detail">&#128167; Faible</span>
+                        </div>
+                        <span class="plant-season">Plantation : Mars - Avril</span>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="plants.html" class="btn btn-primary">Voir toutes les plantes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Tips Section -->
+    <section class="seasonal-tips" id="seasonal-tips">
+        <div class="container">
+            <h2 class="section-title">Conseils du mois</h2>
+            <p class="section-subtitle">Ce qu'il faut faire dans votre jardin en ce moment</p>
+            <div class="tips-grid">
+                <div class="tip-card tip-featured">
+                    <div class="tip-badge">Printemps</div>
+                    <h3>Preparez votre sol</h3>
+                    <p>Le printemps est le moment ideal pour preparer la terre de votre jardin. Ameublissez le sol, ajoutez du compost et verifiez le drainage avant de planter.</p>
+                    <a href="conseils.html" class="tip-link">Lire la suite &rarr;</a>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-badge">Astuce</div>
+                    <h3>Arrosage matinal</h3>
+                    <p>Arrosez vos plantes tot le matin pour reduire l'evaporation et prevenir les maladies fongiques.</p>
+                    <a href="conseils.html" class="tip-link">En savoir plus &rarr;</a>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-badge">Eco</div>
+                    <h3>Paillage naturel</h3>
+                    <p>Utilisez du paillis organique pour conserver l'humidite, limiter les mauvaises herbes et nourrir le sol.</p>
+                    <a href="conseils.html" class="tip-link">En savoir plus &rarr;</a>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-badge">Debutant</div>
+                    <h3>Commencez petit</h3>
+                    <p>Si c'est votre premier jardin, commencez par 3-4 plantes faciles avant de vous lancer dans des cultures plus complexes.</p>
+                    <a href="conseils.html" class="tip-link">En savoir plus &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Restez informe</h2>
+                <p>Recevez nos meilleurs conseils de jardinage et les nouveautes de GreenSpot directement dans votre boite mail.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Votre adresse e-mail" required>
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </form>
+                <p class="newsletter-note">Pas de spam, desabonnement possible a tout moment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><span class="logo-icon">&#127793;</span> GreenSpot</h3>
+                    <p>Votre compagnon pour un jardin fleuri et eco-responsable. Plantez, entretenez, epanouissez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="plants.html">Nos Plantes</a></li>
+                        <li><a href="conseils.html">Conseils</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="conseils.html">Guide du debutant</a></li>
+                        <li><a href="conseils.html">Calendrier de plantation</a></li>
+                        <li><a href="plants.html">Catalogue de plantes</a></li>
+                        <li><a href="conseils.html">FAQ Jardinage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>contact@greenspot.fr</li>
+                        <li>Paris, France</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GreenSpot. Tous droits reserves. Fait avec &#127807; pour la planete.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
