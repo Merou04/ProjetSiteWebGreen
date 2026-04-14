@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Plantes - GreenSpot</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">&#127793;</span> GreenSpot
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="plants.html" class="active">Nos Plantes</a></li>
+                <li><a href="conseils.html">Conseils</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nos Plantes</h1>
+            <p>Decouvrez notre selection de fleurs et plantes pour embellir votre jardin</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="catalog-filters">
+        <div class="container">
+            <div class="filters-bar">
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="vivace">Vivaces</button>
+                <button class="filter-btn" data-filter="annuelle">Annuelles</button>
+                <button class="filter-btn" data-filter="bulbe">Bulbes</button>
+                <button class="filter-btn" data-filter="grimpante">Grimpantes</button>
+                <button class="filter-btn" data-filter="arbuste">Arbustes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plant Catalog -->
+    <section class="catalog">
+        <div class="container">
+            <div class="catalog-grid">
+
+                <!-- Rose -->
+                <div class="catalog-card" data-type="vivace">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">
+                        <span class="plant-emoji">&#127801;</span>
+                        <span class="catalog-badge">Populaire</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Rose</h3>
+                            <span class="catalog-type">Vivace</span>
+                        </div>
+                        <p>La reine des fleurs, symbole d'amour et d'elegance. Disponible dans une large palette de couleurs.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Moderee</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">60-150 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Juin - Oct</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tournesol -->
+                <div class="catalog-card" data-type="annuelle">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">
+                        <span class="plant-emoji">&#127803;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Tournesol</h3>
+                            <span class="catalog-type">Annuelle</span>
+                        </div>
+                        <p>Geant et lumineux, le tournesol suit le soleil et apporte de la joie dans chaque jardin.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Reguliere</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">100-300 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Juil - Sept</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tulipe -->
+                <div class="catalog-card" data-type="bulbe">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">
+                        <span class="plant-emoji">&#127800;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Tulipe</h3>
+                            <span class="catalog-type">Bulbe vivace</span>
+                        </div>
+                        <p>Embleme du printemps, la tulipe offre des formes et couleurs spectaculaires des les premiers beaux jours.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Mi-ombre</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Legere</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">20-70 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Mars - Mai</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lavande -->
+                <div class="catalog-card" data-type="vivace">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+                        <span class="plant-emoji">&#127802;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Lavande</h3>
+                            <span class="catalog-type">Vivace</span>
+                        </div>
+                        <p>Parfumee et mellifere, la lavande est ideale pour les jardins secs et les bordures ensoleillees.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Faible</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">30-80 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Juin - Aout</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hortensia -->
+                <div class="catalog-card" data-type="arbuste">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">
+                        <span class="plant-emoji">&#128144;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Hortensia</h3>
+                            <span class="catalog-type">Arbuste</span>
+                        </div>
+                        <p>Arbuste genereux aux impressionnantes boules de fleurs, ideal pour les zones mi-ombragees du jardin.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Mi-ombre</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Abondante</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">100-200 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Juin - Sept</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jasmin -->
+                <div class="catalog-card" data-type="grimpante">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #fefde8, #fef08a);">
+                        <span class="plant-emoji">&#10024;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Jasmin</h3>
+                            <span class="catalog-type">Grimpante</span>
+                        </div>
+                        <p>Plante grimpante au parfum enivrant, parfaite pour habiller pergolas, treilles et murs du jardin.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Moderee</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">200-500 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Juin - Sept</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dahlia -->
+                <div class="catalog-card" data-type="bulbe">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">
+                        <span class="plant-emoji">&#127804;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Dahlia</h3>
+                            <span class="catalog-type">Bulbe</span>
+                        </div>
+                        <p>Fleur spectaculaire aux formes variees, le dahlia illumine les jardins d'ete et d'automne.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Reguliere</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">40-150 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Juil - Nov</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marguerite -->
+                <div class="catalog-card" data-type="vivace">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #f1f8e9, #dcedc8);">
+                        <span class="plant-emoji">&#127804;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Marguerite</h3>
+                            <span class="catalog-type">Vivace</span>
+                        </div>
+                        <p>Simple et charmante, la marguerite apporte une touche champetre et naturelle a tout espace vert.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Moderee</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">30-80 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Mai - Sept</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glycine -->
+                <div class="catalog-card" data-type="grimpante">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">
+                        <span class="plant-emoji">&#127806;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Glycine</h3>
+                            <span class="catalog-type">Grimpante</span>
+                        </div>
+                        <p>Liane vigoureuse aux magnifiques grappes de fleurs mauves, creant de somptueux rideaux vegetaux.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Moderee</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">500-1500 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Avril - Mai</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Petunia -->
+                <div class="catalog-card" data-type="annuelle">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">
+                        <span class="plant-emoji">&#127799;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Petunia</h3>
+                            <span class="catalog-type">Annuelle</span>
+                        </div>
+                        <p>Fleur abondante et coloree, ideale pour les jardinieres, balcons et massifs d'ete.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Reguliere</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">15-40 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Mai - Oct</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lilas -->
+                <div class="catalog-card" data-type="arbuste">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #ede7f6, #b39ddb);">
+                        <span class="plant-emoji">&#128142;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Lilas</h3>
+                            <span class="catalog-type">Arbuste</span>
+                        </div>
+                        <p>Arbuste printanier au parfum legendaire et aux grappes de fleurs delicates dans les tons de mauve.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Plein soleil</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Moderee</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">200-500 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Avril - Mai</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Narcisse -->
+                <div class="catalog-card" data-type="bulbe">
+                    <div class="catalog-image" style="background: linear-gradient(135deg, #fffde7, #fff59d);">
+                        <span class="plant-emoji">&#127774;</span>
+                    </div>
+                    <div class="catalog-info">
+                        <div class="catalog-header">
+                            <h3>Narcisse</h3>
+                            <span class="catalog-type">Bulbe</span>
+                        </div>
+                        <p>Fleur printaniere par excellence, le narcisse annonce le retour des beaux jours avec elegance.</p>
+                        <div class="catalog-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Soleil</span>
+                                <span class="meta-value">Mi-ombre</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Eau</span>
+                                <span class="meta-value">Legere</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Hauteur</span>
+                                <span class="meta-value">15-50 cm</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Floraison</span>
+                                <span class="meta-value">Fev - Avril</span>
+                            </div>
+                        </div>
+                        <div class="catalog-difficulty">
+                            <span class="difficulty-label">Difficulte :</span>
+                            <span class="difficulty-dots">
+                                <span class="dot filled"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><span class="logo-icon">&#127793;</span> GreenSpot</h3>
+                    <p>Votre compagnon pour un jardin fleuri et eco-responsable. Plantez, entretenez, epanouissez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="plants.html">Nos Plantes</a></li>
+                        <li><a href="conseils.html">Conseils</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="conseils.html">Guide du debutant</a></li>
+                        <li><a href="conseils.html">Calendrier de plantation</a></li>
+                        <li><a href="plants.html">Catalogue de plantes</a></li>
+                        <li><a href="conseils.html">FAQ Jardinage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>contact@greenspot.fr</li>
+                        <li>Paris, France</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GreenSpot. Tous droits reserves. Fait avec &#127807; pour la planete.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

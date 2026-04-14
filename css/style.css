@@ -625,6 +625,501 @@ img {
     color: var(--gray-500);
 }
 
+/* --- Page Header (subpages) --- */
+.page-header {
+    padding: 130px 0 50px;
+    background: linear-gradient(135deg, var(--green-50) 0%, var(--white) 100%);
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--gray-500);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Catalog Filters --- */
+.catalog-filters {
+    padding: 32px 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+    position: sticky;
+    top: 72px;
+    z-index: 100;
+}
+
+.filters-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 2px solid var(--gray-200);
+    background: var(--white);
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--green-300);
+    color: var(--green-700);
+}
+
+.filter-btn.active {
+    background: var(--green-600);
+    border-color: var(--green-600);
+    color: var(--white);
+}
+
+/* --- Catalog Grid --- */
+.catalog {
+    padding: 48px 0 80px;
+    background: var(--gray-50);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.catalog-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+    transition: all var(--transition);
+}
+
+.catalog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+.catalog-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.catalog-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--green-600);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 50px;
+}
+
+.catalog-info {
+    padding: 24px;
+}
+
+.catalog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.catalog-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.catalog-type {
+    font-size: 0.8rem;
+    color: var(--green-600);
+    background: var(--green-50);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.catalog-info > p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.catalog-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.meta-label {
+    font-size: 0.7rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.meta-value {
+    font-size: 0.85rem;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.catalog-difficulty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.difficulty-label {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+}
+
+.difficulty-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-200);
+}
+
+.dot.filled {
+    background: var(--green-500);
+}
+
+/* --- Advice Page --- */
+.advice-section {
+    padding: 60px 0;
+}
+
+.advice-section:nth-child(even) {
+    background: var(--gray-50);
+}
+
+.advice-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.advice-intro p {
+    font-size: 1.05rem;
+    color: var(--gray-500);
+    line-height: 1.7;
+}
+
+/* Calendar */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.month-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all var(--transition);
+}
+
+.month-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--green-200);
+}
+
+.month-card.current {
+    border-color: var(--green-500);
+    background: var(--green-50);
+}
+
+.month-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+}
+
+.month-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.month-card li {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    padding-left: 16px;
+    position: relative;
+}
+
+.month-card li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--green-500);
+    font-weight: 600;
+}
+
+/* FAQ */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px 24px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background var(--transition);
+}
+
+.faq-question:hover {
+    background: var(--gray-50);
+}
+
+.faq-arrow {
+    font-size: 1.2rem;
+    transition: transform var(--transition);
+    color: var(--green-600);
+}
+
+.faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-answer p {
+    padding: 0 24px 20px;
+    font-size: 0.95rem;
+    color: var(--gray-500);
+    line-height: 1.7;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 300px;
+}
+
+/* Beginner tips */
+.beginner-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.beginner-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition);
+}
+
+.beginner-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--green-200);
+}
+
+.beginner-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--green-100);
+    color: var(--green-700);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.beginner-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--gray-800);
+}
+
+.beginner-card p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+}
+
+/* --- Contact Page --- */
+.contact-section {
+    padding: 60px 0 80px;
+    background: var(--white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.contact-info h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--gray-900);
+}
+
+.contact-info > p {
+    font-size: 1rem;
+    color: var(--gray-500);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--green-50);
+    border-radius: var(--radius);
+    flex-shrink: 0;
+}
+
+.info-text h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--gray-800);
+}
+
+.info-text p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+}
+
+/* Contact Form */
+.contact-form-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+}
+
+.contact-form-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--gray-800);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    border: 2px solid var(--gray-200);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    color: var(--gray-800);
+    transition: border-color var(--transition);
+    outline: none;
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--green-400);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
 /* ============================================
    Responsive Design
    ============================================ */
@@ -637,6 +1132,12 @@ img {
         grid-template-columns: repeat(2, 1fr);
     }
     .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .calendar-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -696,8 +1197,30 @@ img {
         margin: 0 auto;
     }
 
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .calendar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .beginner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
     .tips-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
     }
 
     .newsletter-form {

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - GreenSpot</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">&#127793;</span> GreenSpot
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="plants.html">Nos Plantes</a></li>
+                <li><a href="conseils.html">Conseils</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contactez-nous</h1>
+            <p>Une question, une suggestion ? Notre equipe est la pour vous aider</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Info Column -->
+                <div class="contact-info">
+                    <h2>Parlons jardinage !</h2>
+                    <p>Que vous ayez une question sur l'entretien de vos plantes, une suggestion pour ameliorer GreenSpot ou simplement envie de partager votre passion du jardinage, nous sommes a votre ecoute.</p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon">&#128231;</div>
+                            <div class="info-text">
+                                <h4>Email</h4>
+                                <p>contact@greenspot.fr</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">&#128205;</div>
+                            <div class="info-text">
+                                <h4>Adresse</h4>
+                                <p>12 rue des Jardins<br>75011 Paris, France</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">&#128222;</div>
+                            <div class="info-text">
+                                <h4>Telephone</h4>
+                                <p>+33 1 23 45 67 89</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">&#128337;</div>
+                            <div class="info-text">
+                                <h4>Horaires</h4>
+                                <p>Lundi - Vendredi : 9h - 18h<br>Samedi : 10h - 16h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="contact-form-card">
+                    <h3>Envoyez-nous un message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.fr" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Choisissez un sujet</option>
+                                <option value="question">Question sur une plante</option>
+                                <option value="conseil">Demande de conseil</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="bug">Signaler un probleme</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Decrivez votre demande..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><span class="logo-icon">&#127793;</span> GreenSpot</h3>
+                    <p>Votre compagnon pour un jardin fleuri et eco-responsable. Plantez, entretenez, epanouissez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="plants.html">Nos Plantes</a></li>
+                        <li><a href="conseils.html">Conseils</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="conseils.html">Guide du debutant</a></li>
+                        <li><a href="conseils.html">Calendrier de plantation</a></li>
+                        <li><a href="plants.html">Catalogue de plantes</a></li>
+                        <li><a href="conseils.html">FAQ Jardinage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>contact@greenspot.fr</li>
+                        <li>Paris, France</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GreenSpot. Tous droits reserves. Fait avec &#127807; pour la planete.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

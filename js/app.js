@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- Scroll reveal animation ---
-    var revealElements = document.querySelectorAll('.feature-card, .plant-card, .tip-card');
+    var revealElements = document.querySelectorAll('.feature-card, .plant-card, .tip-card, .catalog-card, .beginner-card, .month-card');
 
     function revealOnScroll() {
         revealElements.forEach(function (el) {
@@ -83,6 +83,23 @@ document.addEventListener('DOMContentLoaded', function () {
             this.reset();
         });
     }
+
+    // --- FAQ accordion ---
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+        var question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', function () {
+                var isOpen = item.classList.contains('open');
+                // Close all others
+                faqItems.forEach(function (other) { other.classList.remove('open'); });
+                // Toggle current
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        }
+    });
 
     // --- Plant filter ---
     var filterBtns = document.querySelectorAll('.filter-btn');
