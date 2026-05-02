@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Ajouter un spot{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <div class="container form-container">
+        <div class="form-header">
+            <a href="{{ url_for('spots') }}" class="back-link">&#8592; Retour aux spots</a>
+            <h1>&#128205; Ajouter un spot</h1>
+            <p>Partage un lieu de plantation avec la communauté.</p>
+        </div>
+
+        <form action="{{ url_for('spot_new') }}" method="POST" class="spot-form">
+            <div class="form-group {% if errors.titre %}error{% endif %}">
+                <label for="titre">Titre du spot *</label>
+                <input type="text" id="titre" name="titre"
+                       value="{{ form_data.get('titre', '') }}"
+                       placeholder="Ex : Bac communautaire Rue de la Roquette"
+                       maxlength="100" required>
+                {% if errors.titre %}
+                    <span class="error-msg">{{ errors.titre }}</span>
+                {% endif %}
+            </div>
+
+            <div class="form-group {% if errors.description %}error{% endif %}">
+                <label for="description">Description *</label>
+                <textarea id="description" name="description" rows="4"
+                          placeholder="Décris le lieu, le type de sol, ce qu'on peut y planter..."
+                          required>{{ form_data.get('description', '') }}</textarea>
+                {% if errors.description %}
+                    <span class="error-msg">{{ errors.description }}</span>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

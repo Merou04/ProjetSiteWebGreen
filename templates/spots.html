@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Spots Végétaux à Paris{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/spots.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container">
+        <h1>🌱 Spots Végétaux à Paris</h1>
+        <p>Guide éco-conçu sans carte interactive — pour découvrir la nature en ville avec un impact carbone réduit.</p>
+    </div>
+</section>
+
+<section class="grid">
+    <div class="spots-container">
+        <!-- CARD 1 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/spots/jardin-plantes.webp') }}" alt="Jardin des Plantes">
+            <div class="card-content">
+                <h2>Jardin des Plantes</h2>
+                <div class="meta">🌿 Plantes médicinales & tropicales</div>
+                <div class="meta">🚲 Métro Jussieu / vélo</div>
+                <div class="tags">
+                    <span class="tag">Botanique</span>
+                    <span class="tag">Gratuit</span>
+                </div>
+                <a class="link" href="https://maps.google.com/?q=57+Rue+Cuvier+Paris" target="_blank">Voir →</a>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/spots/serres-auteuil.webp') }}" alt="Serres d’Auteuil">
+            <div class="card-content">
+                <h2>Serres d’Auteuil</h2>
+                <div class="meta">🌿 Plantes tropicales</div>
+                <div class="meta">🚲 Métro Porte d’Auteuil</div>
+                <div class="tags">
+                    <span class="tag">Exotique</span>
+                </div>
+                <a class="link" href="https://maps.google.com/?q=Serres+d'Auteuil" target="_blank">Voir →</a>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/spots/luxembourg.webp') }}" alt="Jardin du Luxembourg">
+            <div class="card-content">
+                <h2>Jardin du Luxembourg</h2>
+                <div class="meta">🌿 Verger & roseraie</div>
+                <div class="meta">🚲 RER Luxembourg</div>
+                <div class="tags">
+                    <span class="tag">Historique</span>
+                    <span class="tag">Romantique</span>
+                </div>
+                <a class="link" href="https://maps.google.com/?q=Jardin+du+Luxembourg" target="_blank">Voir →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/spots/buttes-chaumont.webp') }}" alt="buttes-chaumont">
+            <div class="card-content">
+                <h2>Buttes-Chaumont</h2>
+                <div class="meta">🌿 Biodiversité urbaine</div>
+                <div class="meta">🚲 Métro 7bis</div>
+                <div class="tags">
+                    <span class="tag">Nature</span>
+                </div>
+                <a class="link" href="https://maps.google.com/?q=Buttes+Chaumont" target="_blank">Voir →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/spots/belleville.webp') }}" alt="belleville">
+            <div class="card-content">
+                <h2>Parc de Belleville</h2>
+                <div class="meta">🌿 Massifs fleuris</div>
+                <div class="meta">🚲 Métro Belleville</div>
+                <div class="tags">
+                    <span class="tag">Vue</span>
+                </div>
+                <a class="link" href="https://maps.google.com/?q=Parc+de+Belleville" target="_blank">Voir →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/spots/albert-kahn.webp') }}" alt="albert-kahn">
+            <div class="card-content">
+                <h2>Jardin Albert-Kahn</h2>
+                <div class="meta">🌿 Jardins du monde</div>
+                <div class="meta">🚲 Métro Boulogne</div>
+                <div class="tags">
+                    <span class="tag">Voyage</span>
+                </div>
+                <a class="link" href="https://maps.google.com/?q=Jardin+Albert+Kahn" target="_blank">Voir →</a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section>
+{% endblock %}

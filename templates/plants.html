@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Nos Plantes{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Nos Plantes</h1>
+        <p>Découvrez notre sélection de fleurs et plantes pour embellir votre jardin.</p>
+    </div>
+</section>
+
+<section class="catalog-filters">
+    <div class="container">
+        <div class="filters-bar">
+            <button class="filter-btn active" data-filter="all">Toutes</button>
+            <button class="filter-btn" data-filter="vivace">Vivaces</button>
+            <button class="filter-btn" data-filter="annuelle">Annuelles</button>
+            <button class="filter-btn" data-filter="bulbe">Bulbes</button>
+            <button class="filter-btn" data-filter="grimpante">Grimpantes</button>
+            <button class="filter-btn" data-filter="arbuste">Arbustes</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
