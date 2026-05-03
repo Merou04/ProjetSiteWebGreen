@@ -78,4 +78,4 @@ Dans le HTML :
 
 
 ------- LES FONCTIONNALITES DEVELOPPEES :-------------------------------------
- - via la page des spots, 
+ - via la page des spots on peut AJOUTER un spot
