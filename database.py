@@ -45,12 +45,12 @@ def init_db():
         return
 
     spots = [
-        ('Jardin des Plantes',    'Plantes médicinales et tropicales au cœur de Paris. Sol riche, idéal pour observer la biodiversité végétale.',      48.844360,  2.360430, 'cour',       'mi_ombre',    1),
-        ('Serres d\'Auteuil',     'Immenses serres abritant des plantes tropicales et exotiques. Ambiance unique, humidité élevée.',                     48.847900,  2.254300, 'cour',       'plein_soleil', 1),
-        ('Jardin du Luxembourg',  'Verger historique et roseraie au centre de Paris. Nombreuses espèces florales bien entretenues.',                     48.846200,  2.337200, 'cour',       'plein_soleil', 1),
-        ('Buttes-Chaumont',       'Parc sauvage avec forte biodiversité urbaine. Falaises, prairies, zones ombragées variées.',                          48.879500,  2.382900, 'cour',       'mi_ombre',    1),
-        ('Parc de Belleville',    'Massifs fleuris en terrasses avec vue sur Paris. Exposition plein sud, très ensoleillé.',                             48.870700,  2.381600, 'jardiniere', 'plein_soleil', 1),
-        ('Jardin Albert-Kahn',    'Jardins du monde recréés sur 4 hectares à Boulogne. Diversité exceptionnelle de végétaux.',                           48.841700,  2.231500, 'cour',       'mi_ombre',    1),
+        ('Jardin des Plantes',    'Plantes médicinales et tropicales au cœur de Paris. Sol riche, idéal pour observer la biodiversité végétale.',      48.844360,  "Métro Jussieu", 'cour',       'https://maps.google.com/?q=57+Rue+Cuvier+Paris',    1),
+        ('Serres d\'Auteuil',     'Immenses serres abritant des plantes tropicales et exotiques. Ambiance unique, humidité élevée.',                     48.847900,  "Métro Porte d’Auteuil", 'cour',       "https://maps.google.com/?q=Serres+d'Auteuil", 1),
+        ('Jardin du Luxembourg',  'Verger historique et roseraie au centre de Paris. Nombreuses espèces florales bien entretenues.',                     48.846200,  "RER Luxembourg", 'cour',       'https://maps.google.com/?q=Luxembourg+Paris', 1),
+        ('Buttes-Chaumont',       'Parc sauvage avec forte biodiversité urbaine. Falaises, prairies, zones ombragées variées.',                          48.879500,  "Métro 7bis", 'cour',       'https://maps.google.com/?q=Buttes+Chaumont',    1),
+        ('Parc de Belleville',    'Massifs fleuris en terrasses avec vue sur Paris. Exposition plein sud, très ensoleillé.',                             48.870700,  "Métro Belleville", 'jardiniere', 'https://maps.google.com/?q=Parc+de+Belleville', 1),
+        ('Jardin Albert-Kahn',    'Jardins du monde recréés sur 4 hectares à Boulogne. Diversité exceptionnelle de végétaux.',                           48.841700,  "Métro Boulogne", 'cour',       'https://maps.google.com/?q=Jardin+Albert+Kahn',    1),
     ]
 
     conn.executemany(
