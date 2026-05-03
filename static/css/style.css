@@ -1217,7 +1217,7 @@ img {
 
     .nav-links {
         position: fixed;
-        top: 72px;
+        top: 40px;
         left: 0;
         width: 100%;
         background: var(--white);
@@ -1228,7 +1228,9 @@ img {
         box-shadow: var(--shadow-lg);
         transform: translateY(-120%);
         transition: transform var(--transition);
+
     }
+
 
     .nav-links.open {
         transform: translateY(0);

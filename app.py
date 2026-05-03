@@ -91,17 +91,31 @@ def spots():
 
 
 # ── Détail spot ───────────────────────────────────────────────────────
-@app.route('/spots/<int:id>')
-def spot_detail(id):
-    db   = get_db()
-    spot = db.execute(
-        'SELECT s.*, u.nom AS auteur_nom '
-        'FROM spots s JOIN users u ON s.auteur_id = u.id '
-        'WHERE s.id = ?', [id]
-    ).fetchone()
-    if spot is None:
-        abort(404)
-    return render_template('spot_detail.html', spot=spot, images=IMAGES_SPOTS)
+@app.route('/spot/<int:spot_id>', methods=['GET', 'POST'])
+def spot_detail(spot_id):
+    db = get_db()
+    
+    # Si l'utilisateur poste un commentaire
+    if request.method == 'POST' and session.get('user_id'):
+        note = request.form.get('note')
+        comm = request.form.get('commentaire')
+        db.execute("INSERT INTO reviews (spot_id, user_id, note, commentaire) VALUES (?, ?, ?, ?)",
+                   (spot_id, session['user_id'], note, comm))
+        db.commit()
+
+    # Récupérer les infos du spot
+    spot = db.execute("SELECT * FROM spots WHERE id = ?", (spot_id,)).fetchone()
+    
+    # Récupérer les commentaires avec le nom de l'utilisateur
+    reviews = db.execute("""
+        SELECT r.*, u.prenom, u.nom 
+        FROM reviews r 
+        JOIN users u ON r.user_id = u.id 
+        WHERE r.spot_id = ? 
+        ORDER BY r.date_publication DESC
+    """, (spot_id,)).fetchall()
+
+    return render_template('spot_detail.html', spot=spot, reviews=reviews)
 
 # ── Créer spot ────────────────────────────────────────────────────────
 @app.route('/spots/new', methods=['GET', 'POST'])

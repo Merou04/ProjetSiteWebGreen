@@ -32,6 +32,19 @@ def init_db():
             ON spots(date_creation);
         CREATE INDEX IF NOT EXISTS idx_spots_auteur
             ON spots(auteur_id);
+                       
+
+        CREATE TABLE reviews (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            spot_id INTEGER,
+            user_id INTEGER,
+            note INTEGER CHECK(note BETWEEN 1 AND 5),
+            commentaire TEXT,
+            date_publication DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(spot_id) REFERENCES spots(id),
+            FOREIGN KEY(user_id) REFERENCES users(id)
+        );
+                       
     ''')
     conn.commit()
     conn.close()

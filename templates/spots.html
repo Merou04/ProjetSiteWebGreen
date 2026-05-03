@@ -22,23 +22,25 @@
 
 <section class="grid">
     <div class="spots-container">
-        <!--<p>{{ spots|length }} spots trouvés</p>-->
-        {% for spot in spots %}
+    {% for spot in spots %}
+    <!-- On rend toute la carte cliquable -->
+    <a href="{{ url_for('spot_detail', spot_id=spot.id) }}" class="card-link">
         <div class="card">
             <img src="{{ url_for('static', filename='img/spots/' + spot.image) }}" alt="{{ spot.titre }}">
             <div class="card-content">
                 <h2>{{ spot.titre }}</h2>
-                <div class="meta">🌿 {{ spot.description }}</div>
-                <div class="meta">🚲 {{ spot.acces }}</div>
+                <!-- Affichage de la note moyenne (calculée en SQL) -->
+                <div class="rating-global">⭐ {{ spot.note_moyenne|round(1) if spot.note_moyenne else 'Nouveau' }}</div>
+                <div class="meta">🌿 {{ spot.description[:80] }}...</div>
                 <div class="tags">
                     {% for tag in spot.tags.split(',') %}
                     <span class="tag">{{ tag }}</span>
                     {% endfor %}
                 </div>
-                <a class="link" href="{{ spot.map_url }}" target="_blank">Voir →</a>
             </div>
         </div>
-        {% endfor %}
-    </div>
+    </a>
+    {% endfor %}
+</div>
 </section>
 {% endblock %}

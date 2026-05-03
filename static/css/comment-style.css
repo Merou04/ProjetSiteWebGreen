@@ -1,0 +1,138 @@
+.comments-section {
+    margin-top: 50px; /* Plus d'espace pour respirer */
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comments-section h2 {
+    color: #2d3436;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.comment-card {
+    background: #ffffff; 
+    border-left: 5px solid #27ae60;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px; /* Coins plus arrondis pour un look moderne */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Ombre légère pour décoller du fond */
+    transition: transform 0.2s ease; /* Petit effet au survol */
+}
+
+.comment-card:hover {
+    transform: translateY(-3px); /* Soulève légèrement la carte au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.comment-header strong {
+    color: #27ae60;
+    font-size: 1.1rem;
+}
+
+.stars {
+    letter-spacing: 2px; /* Espace un peu les étoiles */
+    filter: drop-shadow(0 0 2px rgba(241, 196, 15, 0.3));
+}
+
+.comment-text {
+    line-height: 1.6;
+    color: #4a4a4a;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.comment-date {
+    display: block;
+    text-align: right;
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Conteneur principal du formulaire */
+.review-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(45, 106, 79, 0.1);
+    margin-bottom: 50px;
+    border: 1px solid #e0f0e5;
+}
+
+/* Style du label */
+.review-form label {
+    display: block;
+    font-weight: 600;
+    color: #2d6a4f;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Style du menu déroulant (select) */
+.review-form select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #d8f3dc;
+    background-color: #fcfdfc;
+    color: #2d6a4f;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.review-form select:focus {
+    border-color: #52b788;
+}
+
+/* Style de la zone de texte (textarea) */
+.review-form textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #d8f3dc;
+    background-color: #fcfdfc;
+    color: #333;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical; /* Permet d'agrandir seulement en hauteur */
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.review-form textarea:focus {
+    border-color: #52b788;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(82, 183, 136, 0.2);
+}
+
+/* Placeholder (le texte indicatif) */
+.review-form textarea::placeholder {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* On s'assure que le bouton ne colle pas au reste */
+.review-form .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    cursor: pointer;
+}

@@ -1,84 +1,57 @@
 {% extends "base.html" %}
+
+{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='css/comment-style.css') }}">{% endblock %}
+
 {% block title %}{{ spot.titre }} — GreenSpot{% endblock %}
 
 {% block content %}
-<section class="detail-section">
-    <div class="container detail-container">
+<div class="container">
+    <h1>{{ spot.titre }}</h1>
+    <img src="{{ url_for('static', filename='img/spots/' + spot.image) }}" style="width:100%; border-radius:15px;">
 
-        <a href="{{ url_for('spots') }}" class="back-link">&#8592; Retour aux spots</a>
+    <!-- laisse un avis -->
+    <section class="reviews-section">
+        <h3>Donne ton avis !</h3>
 
-        <div class="detail-card">
+        {% if session.get('user_id') %}
+        <form method="POST" class="review-form">
+            <label>Ta note :</label>
+            <select name="note" required>
+                <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                <option value="4">⭐⭐⭐⭐ (Très bien)</option>
+                <option value="3">⭐⭐⭐ (Bien)</option>
+                <option value="2">⭐⭐ (Moyen)</option>
+                <option value="1">⭐ (Décevant)</option>
+            </select>
+            <textarea name="commentaire" placeholder="Qu'as-tu pensé de ce spot ?" required></textarea>
+            <button type="submit" class="btn btn-primary">Publier</button>
+        </form>
+        {% else %}
+        <p><a href="{{ url_for('login') }}">Connecte-toi</a> pour laisser une note !</p>
+        {% endif %}
 
-            <!-- Image -->
-            <div class="detail-img">
-                <img src="{{ url_for('static', filename='img/spots/' + images.get(spot.type_terrain, 'cour.webp')) }}"
-                     alt="Spot {{ spot.type_terrain }} — {{ spot.titre }}"
-                     width="800" height="400">
-            </div>
 
-            <div class="detail-body">
+        <!-- Section des commentaires -->
+        <section class="comments-section">
+            <h2>Avis de la communauté ({{ reviews|length }})</h2>
 
-                <!-- En-tête -->
-                <div class="detail-header">
-                    <h1>{{ spot.titre }}</h1>
-                    <div class="spot-badges">
-                        <span class="badge">
-                            {% if spot.ensoleillement == 'plein_soleil' %}&#9728; Plein soleil
-                            {% elif spot.ensoleillement == 'mi_ombre' %}&#127774; Mi-ombre
-                            {% else %}&#127768; Ombre{% endif %}
-                        </span>
-                        <span class="badge">
-                            {% if spot.type_terrain == 'balcon' %}&#127807; Balcon
-                            {% elif spot.type_terrain == 'pied_arbre' %}&#127795; Pied d'arbre
-                            {% elif spot.type_terrain == 'jardiniere' %}&#127803; Jardinière
-                            {% else %}&#127968; Cour{% endif %}
-                        </span>
+            {% if reviews %}
+                {% for review in reviews %}
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <strong>{{ review.prenom }} {{ review.nom[0] }}.</strong>
+                        <span class="stars">{{ "⭐" * review.note }}</span>
                     </div>
+                    <p class="comment-text">{{ review.commentaire }}</p>
+                    <small class="comment-date">Posté le {{ review.date_publication }}</small>
                 </div>
+                {% endfor %}
+            {% else %}
+                <p>Pas encore d'avis sur ce spot. Sois le premier à en laisser un !</p>
+            {% endif %}
+        </section>
 
-                <!-- Description -->
-                <div class="detail-desc">
-                    <p>{{ spot.description }}</p>
-                </div>
 
-                <!-- Infos -->
-                <div class="detail-meta">
-                    <span>&#128100; Partagé par <strong>{{ spot.auteur_nom }}</strong></span>
-                    <span>&#128197; {{ spot.date_creation[:10] }}</span>
-                </div>
-
-                <!-- Lien carte OSM — Green IT ✅ -->
-                <div class="detail-map">
-                    <h3>&#128205; Localisation</h3>
-                    <p class="map-coords">
-                        Coordonnées : {{ "%.6f"|format(spot.latitude) }}, {{ "%.6f"|format(spot.longitude) }}
-                    </p>
-                    <a href="https://www.openstreetmap.org/?mlat={{ spot.latitude }}&mlon={{ spot.longitude }}&zoom=16"
-                       target="_blank"
-                       rel="noopener"
-                       class="btn btn-primary">
-                        &#128205; Voir sur OpenStreetMap
-                    </a>
-                    <p class="map-note">
-                        &#127757; OpenStreetMap — open source, sans tracker, sans publicité.
-                    </p>
-                </div>
-
-                <!-- Actions si auteur connecté -->
-                {% if session.user_id == spot.auteur_id or session.role == 'admin' %}
-                <div class="detail-actions">
-                    <a href="{{ url_for('spot_edit', id=spot.id) }}" class="btn btn-outline">
-                        &#9998; Modifier
-                    </a>
-                    <form action="{{ url_for('spot_delete', id=spot.id) }}" method="POST"
-                          onsubmit="return confirm('Supprimer ce spot définitivement ?')">
-                        <button type="submit" class="btn btn-danger">&#128465; Supprimer</button>
-                    </form>
-                </div>
-                {% endif %}
-
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 {% endblock %}
