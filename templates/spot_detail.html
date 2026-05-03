@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}{{ spot.titre }} — GreenSpot{% endblock %}
+
+{% block content %}
+<section class="detail-section">
+    <div class="container detail-container">
+
+        <a href="{{ url_for('spots') }}" class="back-link">&#8592; Retour aux spots</a>
+
+        <div class="detail-card">
+
+            <!-- Image -->
+            <div class="detail-img">
+                <img src="{{ url_for('static', filename='img/spots/' + images.get(spot.type_terrain, 'cour.webp')) }}"
+                     alt="Spot {{ spot.type_terrain }} — {{ spot.titre }}"
+                     width="800" height="400">
+            </div>
+
+            <div class="detail-body">
+
+                <!-- En-tête -->
+                <div class="detail-header">
+                    <h1>{{ spot.titre }}</h1>
+                    <div class="spot-badges">
+                        <span class="badge">
+                            {% if spot.ensoleillement == 'plein_soleil' %}&#9728; Plein soleil
+                            {% elif spot.ensoleillement == 'mi_ombre' %}&#127774; Mi-ombre
+                            {% else %}&#127768; Ombre{% endif %}
+                        </span>
+                        <span class="badge">
+                            {% if spot.type_terrain == 'balcon' %}&#127807; Balcon
+                            {% elif spot.type_terrain == 'pied_arbre' %}&#127795; Pied d'arbre
+                            {% elif spot.type_terrain == 'jardiniere' %}&#127803; Jardinière
+                            {% else %}&#127968; Cour{% endif %}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="detail-desc">
+                    <p>{{ spot.description }}</p>
+                </div>
+
+                <!-- Infos -->
+                <div class="detail-meta">
+                    <span>&#128100; Partagé par <strong>{{ spot.auteur_nom }}</strong></span>
+                    <span>&#128197; {{ spot.date_creation[:10] }}</span>
+                </div>
+
+                <!-- Lien carte OSM — Green IT ✅ -->
+                <div class="detail-map">
+                    <h3>&#128205; Localisation</h3>
+                    <p class="map-coords">
+                        Coordonnées : {{ "%.6f"|format(spot.latitude) }}, {{ "%.6f"|format(spot.longitude) }}
+                    </p>
+                    <a href="https://www.openstreetmap.org/?mlat={{ spot.latitude }}&mlon={{ spot.longitude }}&zoom=16"
+                       target="_blank"
+                       rel="noopener"
+                       class="btn btn-primary">
+                        &#128205; Voir sur OpenStreetMap
+                    </a>
+                    <p class="map-note">
+                        &#127757; OpenStreetMap — open source, sans tracker, sans publicité.
+                    </p>
+                </div>
+
+                <!-- Actions si auteur connecté -->
+                {% if session.user_id == spot.auteur_id or session.role == 'admin' %}
+                <div class="detail-actions">
+                    <a href="{{ url_for('spot_edit', id=spot.id) }}" class="btn btn-outline">
+                        &#9998; Modifier
+                    </a>
+                    <form action="{{ url_for('spot_delete', id=spot.id) }}" method="POST"
+                          onsubmit="return confirm('Supprimer ce spot définitivement ?')">
+                        <button type="submit" class="btn btn-danger">&#128465; Supprimer</button>
+                    </form>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

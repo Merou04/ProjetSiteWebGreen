@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,15 @@
     {% block head %}{% endblock %}
 
     <style>
-        body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
 
         .hero-tag {
             display: inline-flex;
             align-items: center;
             gap: .4rem;
-            background: rgba(255,255,255,.85);
+            background: rgba(255, 255, 255, .85);
             border: 1px solid var(--primary-color, #2d6a4f);
             color: var(--primary-color, #2d6a4f);
             font-size: .8rem;
@@ -26,7 +29,9 @@
             margin-bottom: 1rem;
         }
 
-        .recent-spots { padding: 5rem 0; }
+        .recent-spots {
+            padding: 5rem 0;
+        }
 
         .spots-grid {
             display: grid;
@@ -39,20 +44,37 @@
             background: #fff;
             border-radius: 12px;
             padding: 1.4rem;
-            box-shadow: 0 2px 12px rgba(45,106,79,.08);
+            box-shadow: 0 2px 12px rgba(45, 106, 79, .08);
             transition: transform .2s, box-shadow .2s;
         }
 
         .spot-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(45,106,79,.14);
+            box-shadow: 0 8px 24px rgba(45, 106, 79, .14);
         }
 
-        .spot-card-icon { font-size: 2.2rem; margin-bottom: .75rem; }
-        .spot-card h3 { font-size: 1rem; margin-bottom: .3rem; }
-        .spot-author { font-size: .8rem; color: #5a6b5e; margin-bottom: .75rem; }
+        .spot-card-icon {
+            font-size: 2.2rem;
+            margin-bottom: .75rem;
+        }
 
-        .spot-badges { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .9rem; }
+        .spot-card h3 {
+            font-size: 1rem;
+            margin-bottom: .3rem;
+        }
+
+        .spot-author {
+            font-size: .8rem;
+            color: #5a6b5e;
+            margin-bottom: .75rem;
+        }
+
+        .spot-badges {
+            display: flex;
+            gap: .4rem;
+            flex-wrap: wrap;
+            margin-bottom: .9rem;
+        }
 
         .badge {
             font-size: .72rem;
@@ -73,9 +95,14 @@
             text-decoration: none;
         }
 
-        .spot-link:hover { text-decoration: underline; }
+        .spot-link:hover {
+            text-decoration: underline;
+        }
 
-        .green-it { padding: 5rem 0; background: #f0f7f2; }
+        .green-it {
+            padding: 5rem 0;
+            background: #f0f7f2;
+        }
 
         .green-it-grid {
             display: grid;
@@ -91,10 +118,12 @@
             background: #fff;
             border-radius: 12px;
             padding: 1.25rem 1.4rem;
-            box-shadow: 0 2px 12px rgba(45,106,79,.08);
+            box-shadow: 0 2px 12px rgba(45, 106, 79, .08);
         }
 
-        .green-card-ico { font-size: 1.6rem; }
+        .green-card-ico {
+            font-size: 1.6rem;
+        }
 
         .score-banner {
             display: flex;
@@ -108,36 +137,75 @@
             gap: 1rem;
         }
 
-        .score-val { font-size: 1.6rem; font-weight: 700; color: #52b788; }
+        .score-val {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #52b788;
+        }
     </style>
 </head>
 
 <body>
 
-<!-- NAV (commun à toutes les pages) -->
-<nav class="navbar">
-    <div class="container nav-container">
-        <a href="{{ url_for('index') }}" class="logo">🌱 GreenSpot</a>
+    <!-- NAV (commun à toutes les pages) -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{{ url_for('index') }}" class="logo">🌱 GreenSpot</a>
 
-        <ul class="nav-links">
-            <li><a href="{{ url_for('index') }}">Accueil</a></li>
-            <li><a href="{{ url_for('page_spots') }}">Les spots</a></li>
-            <li><a href="{{ url_for('login') }}">Connexion</a></li>
-            <li><a href="{{ url_for('register') }}">S'inscrire</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li><a href="{{ url_for('spots') }}">Les spots</a></li>
+                <li><a href="{{ url_for('login') }}">Connexion</a></li>
+                <li><a href="{{ url_for('register') }}">S'inscrire</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<main>
-    {% block content %}{% endblock %}
-</main>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-<footer class="footer">
-    <div class="container footer-bottom">
-        <p>&copy; 2026 GreenSpot · EFREI Paris 🌿</p>
-    </div>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><span class="logo-icon">&#127793;</span> GreenSpot</h3>
+                    <p>Votre compagnon pour un jardin fleuri et eco-responsable. Plantez, entretenez, epanouissez.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="plants.html">Nos Plantes</a></li>
+                        <li><a href="conseils.html">Conseils</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="conseils.html">Guide du debutant</a></li>
+                        <li><a href="conseils.html">Calendrier de plantation</a></li>
+                        <li><a href="plants.html">Catalogue de plantes</a></li>
+                        <li><a href="conseils.html">FAQ Jardinage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>contact@greenspot.fr</li>
+                        <li>Paris, France</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GreenSpot. Tous droits reserves. Fait avec &#127807; pour la planete.</p>
+            </div>
+        </div>
+    </footer>
+
 
 </body>
+
 </html>

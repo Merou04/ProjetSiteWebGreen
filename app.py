@@ -33,19 +33,11 @@ def close_db(e=None):
 # ── Accueil ───────────────────────────────────────────────────────────
 @app.route('/')
 def index():
-    db    = get_db()
-    spots = db.execute(
-        'SELECT s.id, s.titre, s.type_terrain, s.ensoleillement, '
-        '       s.date_creation, u.nom '
-        'FROM spots s JOIN users u ON s.auteur_id = u.id '
-        'ORDER BY s.date_creation DESC LIMIT 3'
-    ).fetchall()
-    return render_template('index.html', spots=spots, images=IMAGES_SPOTS)
+    return render_template('index.html')
+    
 
 # ── Les routes vers les pages ───────────────────────────────────────────────────────
-@app.route('/index')
-def accueil():
-    return redirect(url_for('index'))
+
 
 @app.route('/conseils')
 def conseils():
@@ -60,29 +52,35 @@ def plants():
     # Ici tu pourras plus tard passer une liste de plantes depuis la BDD
     return render_template('plants.html')
 
-@app.route('/page_spots')
-def page_spots():
-    return render_template('spots.html')
+
 
 
 # ── Liste spots ───────────────────────────────────────────────────────
 @app.route('/spots')
 def spots():
+    # DEV : simule un user connecté — supprimer après auth
+    if 'user_id' not in session:
+        session['user_id'] = 1
+        session['role']    = 'user'
+
     db       = get_db()
     page     = request.args.get('page', 1, type=int)
     per_page = 20
     offset   = (page - 1) * per_page
+
     spots = db.execute(
-        'SELECT s.id, s.titre, s.type_terrain, s.ensoleillement, '
-        '       s.date_creation, u.nom '
-        'FROM spots s JOIN users u ON s.auteur_id = u.id '
-        'ORDER BY s.date_creation DESC LIMIT ? OFFSET ?',
+        'SELECT id, titre, description, image, acces, tags, map_url, auteur_id '
+        'FROM spots '
+        'ORDER BY date_creation DESC LIMIT ? OFFSET ?',
         [per_page, offset]
     ).fetchall()
+
     total       = db.execute('SELECT COUNT(*) FROM spots').fetchone()[0]
     total_pages = max(1, (total + per_page - 1) // per_page)
-    return render_template('spots.html', spots=spots, page=page,
-                           total_pages=total_pages, images=IMAGES_SPOTS)
+
+    return render_template('spots.html', spots=spots,
+                           page=page, total_pages=total_pages)
+
 
 # ── Détail spot ───────────────────────────────────────────────────────
 @app.route('/spots/<int:id>')
@@ -240,6 +238,8 @@ def logout():
 import os as _os
 if not _os.path.exists(DB):
     init_db()
+    from database import seed_spots
+    seed_spots()
 
 if __name__ == '__main__':
     app.run(debug=True)
