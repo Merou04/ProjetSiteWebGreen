@@ -52,16 +52,24 @@ def plants():
     # Ici tu pourras plus tard passer une liste de plantes depuis la BDD
     return render_template('plants.html')
 
+@app.route('/inscription')
+def inscription():
+    return render_template('register.html')
+
 
 
 
 # ── Liste spots ───────────────────────────────────────────────────────
+SIMULATE_LOGIN = True  # Mettre à True pour simuler un utilisateur connecté (dev uniquement)
 @app.route('/spots')
 def spots():
     # DEV : simule un user connecté — supprimer après auth
-    if 'user_id' not in session:
+    if SIMULATE_LOGIN:
         session['user_id'] = 1
-        session['role']    = 'user'
+        session['role'] = 'user'
+    else:
+        session.pop('user_id', None)
+        session.pop('role', None)
 
     db       = get_db()
     page     = request.args.get('page', 1, type=int)
@@ -105,56 +113,45 @@ def spot_new():
     form_data = {}
 
     if request.method == 'POST':
-        titre          = request.form.get('titre',          '').strip()
-        description    = request.form.get('description',    '').strip()
-        latitude       = request.form.get('latitude',       '').strip()
-        longitude      = request.form.get('longitude',      '').strip()
-        type_terrain   = request.form.get('type_terrain',   '').strip()
-        ensoleillement = request.form.get('ensoleillement', '').strip()
+        titre       = request.form.get('titre',       '').strip()
+        description = request.form.get('description', '').strip()
+        image       = request.form.get('image',       '').strip()
+        acces       = request.form.get('acces',       '').strip()
+        tags        = request.form.get('tags',        '').strip()
+        map_url     = request.form.get('map_url',     '').strip()
 
         form_data = request.form
 
+        # Validation
         if not titre or len(titre) < 3:
             errors['titre'] = 'Le titre doit faire au moins 3 caractères.'
         if len(titre) > 100:
             errors['titre'] = 'Le titre ne doit pas dépasser 100 caractères.'
         if not description or len(description) < 10:
             errors['description'] = 'La description doit faire au moins 10 caractères.'
-        try:
-            lat = float(latitude)
-            if not (-90 <= lat <= 90):
-                errors['latitude'] = 'Latitude invalide (entre -90 et 90).'
-        except ValueError:
-            errors['latitude'] = 'Latitude invalide.'
-        try:
-            lng = float(longitude)
-            if not (-180 <= lng <= 180):
-                errors['longitude'] = 'Longitude invalide (entre -180 et 180).'
-        except ValueError:
-            errors['longitude'] = 'Longitude invalide.'
-        if type_terrain not in TYPES_TERRAIN:
-            errors['type_terrain'] = 'Choisir un type de terrain.'
-        if ensoleillement not in ENSOLEILLEMENTS:
-            errors['ensoleillement'] = 'Choisir un ensoleillement.'
+        if not image:
+            errors['image'] = 'Choisir une image.'
+        if not acces:
+            errors['acces'] = "L'accès est requis."
+        if not tags:
+            errors['tags'] = 'Au moins un tag requis.'
+        if not map_url or not map_url.startswith('http'):
+            errors['map_url'] = 'Lien Google Maps invalide.'
 
         if not errors:
             db = get_db()
             db.execute(
-                'INSERT INTO spots '
-                '(titre, description, latitude, longitude, '
-                ' type_terrain, ensoleillement, auteur_id) '
+                'INSERT INTO spots (titre, description, image, acces, tags, map_url, auteur_id) '
                 'VALUES (?, ?, ?, ?, ?, ?, ?)',
-                [titre, description, float(latitude), float(longitude),
-                 type_terrain, ensoleillement, session['user_id']]
+                [titre, description, image, acces, tags, map_url, session['user_id']]
             )
             db.commit()
             return redirect(url_for('spots'))
 
     return render_template('spot_new.html',
                            errors=errors,
-                           form_data=form_data,
-                           types_terrain=TYPES_TERRAIN,
-                           ensoleillements=ENSOLEILLEMENTS)
+                           form_data=form_data)
+          
 
 # ── Modifier spot ─────────────────────────────────────────────────────
 @app.route('/spots/<int:id>/edit', methods=['GET', 'POST'])

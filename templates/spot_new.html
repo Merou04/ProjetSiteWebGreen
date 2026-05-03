@@ -12,6 +12,8 @@
         </div>
 
         <form action="{{ url_for('spot_new') }}" method="POST" class="spot-form">
+
+            <!-- Titre -->
             <div class="form-group {% if errors.titre %}error{% endif %}">
                 <label for="titre">Titre du spot *</label>
                 <input type="text" id="titre" name="titre"
@@ -23,6 +25,7 @@
                 {% endif %}
             </div>
 
+            <!-- Description -->
             <div class="form-group {% if errors.description %}error{% endif %}">
                 <label for="description">Description *</label>
                 <textarea id="description" name="description" rows="4"
@@ -32,6 +35,95 @@
                     <span class="error-msg">{{ errors.description }}</span>
                 {% endif %}
             </div>
+
+            <!-- Image (nom du fichier webp) -->
+            <div class="form-group {% if errors.image %}error{% endif %}">
+                <label for="image">Image du spot *</label>
+                <select id="image" name="image" required>
+                    <option value="" disabled
+                        {% if not form_data.get('image') %}selected{% endif %}>
+                        Choisir une image
+                    </option>
+                    <option value="jardin-plantes.webp"
+                        {% if form_data.get('image') == 'jardin-plantes.webp' %}selected{% endif %}>
+                        Jardin / Plantes
+                    </option>
+                    <option value="buttes-chaumont.webp"
+                        {% if form_data.get('image') == 'buttes-chaumont.webp' %}selected{% endif %}>
+                        Parc naturel
+                    </option>
+                    <option value="belleville.webp"
+                        {% if form_data.get('image') == 'belleville.webp' %}selected{% endif %}>
+                        Parc fleuri
+                    </option>
+                    <option value="luxembourg.webp"
+                        {% if form_data.get('image') == 'luxembourg.webp' %}selected{% endif %}>
+                        Jardin historique
+                    </option>
+                    <option value="serres-auteuil.webp"
+                        {% if form_data.get('image') == 'serres-auteuil.webp' %}selected{% endif %}>
+                        Serre / Exotique
+                    </option>
+                    <option value="albert-kahn.webp"
+                        {% if form_data.get('image') == 'albert-kahn.webp' %}selected{% endif %}>
+                        Jardin du monde
+                    </option>
+                </select>
+                {% if errors.image %}
+                    <span class="error-msg">{{ errors.image }}</span>
+                {% endif %}
+            </div>
+
+            <!-- Accès -->
+            <div class="form-group {% if errors.acces %}error{% endif %}">
+                <label for="acces">Accès *</label>
+                <input type="text" id="acces" name="acces"
+                       value="{{ form_data.get('acces', '') }}"
+                       placeholder="Ex : Métro Jussieu / vélo"
+                       maxlength="150" required>
+                {% if errors.acces %}
+                    <span class="error-msg">{{ errors.acces }}</span>
+                {% endif %}
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group {% if errors.tags %}error{% endif %}">
+                <label for="tags">Tags *</label>
+                <input type="text" id="tags" name="tags"
+                       value="{{ form_data.get('tags', '') }}"
+                       placeholder="Ex : Botanique,Gratuit,Nature"
+                       maxlength="200" required>
+                <small style="color:#5a6b5e;font-size:.78rem;">
+                    Sépare les tags par des virgules sans espaces.
+                </small>
+                {% if errors.tags %}
+                    <span class="error-msg">{{ errors.tags }}</span>
+                {% endif %}
+            </div>
+
+            <!-- Lien Google Maps -->
+            <div class="form-group {% if errors.map_url %}error{% endif %}">
+                <label for="map_url">Lien Google Maps *</label>
+                <input type="url" id="map_url" name="map_url"
+                       value="{{ form_data.get('map_url', '') }}"
+                       placeholder="https://maps.google.com/?q=..."
+                       required>
+                <small style="color:#5a6b5e;font-size:.78rem;">
+                    &#128161; Va sur
+                    <a href="https://maps.google.com" target="_blank" rel="noopener">Google Maps</a>,
+                    cherche le lieu, copie l'URL.
+                </small>
+                {% if errors.map_url %}
+                    <span class="error-msg">{{ errors.map_url }}</span>
+                {% endif %}
+            </div>
+
+            <!-- Boutons -->
+            <div class="form-actions">
+                <a href="{{ url_for('spots') }}" class="btn btn-outline">Annuler</a>
+                <button type="submit" class="btn btn-primary">&#128205; Publier le spot</button>
+            </div>
+
         </form>
     </div>
 </section>

@@ -200,7 +200,11 @@
 
         <div class="hero-buttons">
             <a href="{{ url_for('spots') }}" class="btn btn-primary">Voir les spots</a>
-            <a href="{{ url_for('register') }}" class="btn btn-secondary">Partager</a>
+            {% if session.get('user_id') == 1 %}
+                <a href="{{ url_for('spot_new') }}" class="btn btn-secondary">Partager un spot</a>
+            {% else %}
+                <a href="{{ url_for('register') }}" class="btn btn-secondary">Partager un spot</a>
+            {% endif %}
         </div>
 
     </div>
