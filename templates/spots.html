@@ -12,7 +12,7 @@
     <div class="container">
         <h1>🌱 Spots Végétaux à Paris</h1>
         <p>Guide éco-conçu sans carte interactive — pour découvrir la nature en ville avec un impact carbone réduit.</p>
-    {% if session.get('user_id') == 1 %}
+    {% if session.get('user_id')%}
         <a href="{{ url_for('spot_new') }}" class="btn btn-secondary">Partager un spot</a>
     {% else %}
         <a href="{{ url_for('register') }}" class="btn btn-secondary">Partager un spot</a>
@@ -20,13 +20,18 @@
     </div>
 </section>
 
+<div class="search">
+    <form method="GET" action="{{ url_for('spots') }}">
+        <input class="search__input" type="text" name="q" placeholder="Rechercher un spot..." value="{{ request.args.get('q', '') }}">
+        <button class="search__button"type="submit">🔍</button>
+    </form>
+</div>
+
 <section class="grid">
     <div class="spots-container">
     {% for spot in spots %}
-    <!-- On rend toute la carte cliquable -->
-    <a href="{{ url_for('spot_detail', spot_id=spot.id) }}" class="card-link">
         <div class="card">
-            <img src="{{ url_for('static', filename='img/spots/' + spot.image) }}" alt="{{ spot.titre }}">
+            <img src="{{ url_for('get_image', spot_id=spot.id) }}" alt="{{ spot.titre }}">
             <div class="card-content">
                 <h2>{{ spot.titre }}</h2>
                 <!-- Affichage de la note moyenne (calculée en SQL) -->
@@ -37,9 +42,10 @@
                     <span class="tag">{{ tag }}</span>
                     {% endfor %}
                 </div>
+                <a href="{{ spot.map_url }}" target="_blank" class="voir-spot">Voir le spot ⭢</a>
             </div>
+            <a href="{{ url_for('spot_detail', spot_id=spot.id) }}" class="card-link"></a>
         </div>
-    </a>
     {% endfor %}
 </div>
 </section>

@@ -142,6 +142,16 @@
             font-weight: 700;
             color: #52b788;
         }
+
+        #deconnexion {
+            color: #e63946;
+            font-weight: 600;
+        }
+
+        #deconnexion:hover {
+            background-color: #e6394729;
+
+        }
     </style>
 </head>
 
@@ -155,8 +165,12 @@
             <ul class="nav-links">
                 <li><a href="{{ url_for('index') }}">Accueil</a></li>
                 <li><a href="{{ url_for('spots') }}">Les spots</a></li>
-                <li><a href="{{ url_for('login') }}">Connexion</a></li>
-                <li><a href="{{ url_for('register') }}">S'inscrire</a></li>
+                {% if g.user %}
+                    <li><a id="deconnexion" href="{{ url_for('logout') }}">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Connexion</a></li>
+                    <li><a href="{{ url_for('register') }}">S'inscrire</a></li>
+                {% endif %}                    
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
             </ul>
         </div>

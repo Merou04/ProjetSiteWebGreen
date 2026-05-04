@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
-{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='css/comment-style.css') }}">{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/comment-style.css') }}">{% endblock %}
 
 {% block title %}{{ spot.titre }} — GreenSpot{% endblock %}
 
 {% block content %}
+
 <div class="container">
     <h1>{{ spot.titre }}</h1>
-    <img src="{{ url_for('static', filename='img/spots/' + spot.image) }}" style="width:100%; border-radius:15px;">
+    <img src="{{ url_for('get_image', spot_id=spot.id) }}" style="width:100%; border-radius:15px;">
 
     <!-- laisse un avis -->
     <section class="reviews-section">
@@ -37,15 +39,21 @@
 
             {% if reviews %}
                 {% for review in reviews %}
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <strong>{{ review.prenom }} {{ review.nom[0] }}.</strong>
-                        <span class="stars">{{ "⭐" * review.note }}</span>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <strong>{{ review.prenom }} {{ review.nom[0] }}.</strong>
+                            <span class="stars">{{ "⭐" * review.note }}</span>
+                        </div>
+                        <p class="comment-text">{{ review.commentaire }}</p>
+                        <small class="comment-date">Posté le {{ review.date_publication }}</small>
                     </div>
-                    <p class="comment-text">{{ review.commentaire }}</p>
-                    <small class="comment-date">Posté le {{ review.date_publication }}</small>
-                </div>
                 {% endfor %}
+                {% if total_reviews > current_limit %}
+                    <a href="{{ url_for('spot_detail', spot_id=spot.id, limit=current_limit + 20) }}#reviews-section"
+                        class="btn btn-outline-primary">
+                        Voir plus de commentaires ({{ total_reviews - current_limit }} restants)
+                    </a>
+                {% endif %}
             {% else %}
                 <p>Pas encore d'avis sur ce spot. Sois le premier à en laisser un !</p>
             {% endif %}

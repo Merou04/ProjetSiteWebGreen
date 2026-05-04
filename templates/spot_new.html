@@ -11,7 +11,7 @@
             <p>Partage un lieu de plantation avec la communauté.</p>
         </div>
 
-        <form action="{{ url_for('spot_new') }}" method="POST" class="spot-form">
+        <form action="{{ url_for('spot_new') }}" method="POST" class="spot-form" enctype="multipart/form-data">
 
             <!-- Titre -->
             <div class="form-group {% if errors.titre %}error{% endif %}">
@@ -36,39 +36,16 @@
                 {% endif %}
             </div>
 
-            <!-- Image (nom du fichier webp) -->
+            <!-- Image (upload) -->
             <div class="form-group {% if errors.image %}error{% endif %}">
                 <label for="image">Image du spot *</label>
-                <select id="image" name="image" required>
-                    <option value="" disabled
-                        {% if not form_data.get('image') %}selected{% endif %}>
-                        Choisir une image
-                    </option>
-                    <option value="jardin-plantes.webp"
-                        {% if form_data.get('image') == 'jardin-plantes.webp' %}selected{% endif %}>
-                        Jardin / Plantes
-                    </option>
-                    <option value="buttes-chaumont.webp"
-                        {% if form_data.get('image') == 'buttes-chaumont.webp' %}selected{% endif %}>
-                        Parc naturel
-                    </option>
-                    <option value="belleville.webp"
-                        {% if form_data.get('image') == 'belleville.webp' %}selected{% endif %}>
-                        Parc fleuri
-                    </option>
-                    <option value="luxembourg.webp"
-                        {% if form_data.get('image') == 'luxembourg.webp' %}selected{% endif %}>
-                        Jardin historique
-                    </option>
-                    <option value="serres-auteuil.webp"
-                        {% if form_data.get('image') == 'serres-auteuil.webp' %}selected{% endif %}>
-                        Serre / Exotique
-                    </option>
-                    <option value="albert-kahn.webp"
-                        {% if form_data.get('image') == 'albert-kahn.webp' %}selected{% endif %}>
-                        Jardin du monde
-                    </option>
-                </select>
+                <input type="file" id="image" name="image"
+                       accept="image/jpeg,image/png,image/jpg,image/webp"
+                       required>
+                <small style="color:#5a6b5e;font-size:.78rem;">
+                    ✓ Formats acceptés : JPG, PNG, WebP (max 5 MB)
+                    <br>🌱 Sera automatiquement convertie en WebP (green IT)
+                </small>
                 {% if errors.image %}
                     <span class="error-msg">{{ errors.image }}</span>
                 {% endif %}
